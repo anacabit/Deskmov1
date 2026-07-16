@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#1255A8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Mi App">
+<title>Mi Asistente IA</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+CiAgPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSIxMDAiIGZpbGw9IiMxMjU1QTgiLz4KICA8IS0tIEFudGVuYSAtLT4KICA8cmVjdCB4PSIyNDAiIHk9IjQwIiB3aWR0aD0iMzIiIGhlaWdodD0iNjAiIHJ4PSIxNiIgZmlsbD0id2hpdGUiLz4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSI0MCIgcj0iMjIiIGZpbGw9IndoaXRlIi8+CiAgPGNpcmNsZSBjeD0iMjU2IiBjeT0iNDAiIHI9IjEyIiBmaWxsPSIjN0MzQUVEIi8+CiAgPCEtLSBDYWJlemEgLS0+CiAgPHJlY3QgeD0iMTIwIiB5PSIxMDAiIHdpZHRoPSIyNzIiIGhlaWdodD0iMjAwIiByeD0iNDAiIGZpbGw9IndoaXRlIi8+CiAgPCEtLSBPam9zIC0tPgogIDxyZWN0IHg9IjE1OCIgeT0iMTQ4IiB3aWR0aD0iNzIiIGhlaWdodD0iNzIiIHJ4PSIxOCIgZmlsbD0iIzEyNTVBOCIvPgogIDxjaXJjbGUgY3g9IjE5NCIgY3k9IjE4NCIgcj0iMjIiIGZpbGw9IndoaXRlIi8+CiAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMTc4IiByPSIxMCIgZmlsbD0iIzEyNTVBOCIvPgogIDxyZWN0IHg9IjI4MiIgeT0iMTQ4IiB3aWR0aD0iNzIiIGhlaWdodD0iNzIiIHJ4PSIxOCIgZmlsbD0iIzEyNTVBOCIvPgogIDxjaXJjbGUgY3g9IjMxOCIgY3k9IjE4NCIgcj0iMjIiIGZpbGw9IndoaXRlIi8+CiAgPGNpcmNsZSBjeD0iMzI0IiBjeT0iMTc4IiByPSIxMCIgZmlsbD0iIzEyNTVBOCIvPgogIDwhLS0gQm9jYSAtLT4KICA8cmVjdCB4PSIxNjgiIHk9IjI1MiIgd2lkdGg9IjE3NiIgaGVpZ2h0PSIyOCIgcng9IjE0IiBmaWxsPSIjRDZFOEZGIi8+CiAgPHJlY3QgeD0iMTg4IiB5PSIyNjAiIHdpZHRoPSIyOCIgaGVpZ2h0PSIxMiIgcng9IjYiIGZpbGw9IiMxMjU1QTgiLz4KICA8cmVjdCB4PSIyNDIiIHk9IjI2MCIgd2lkdGg9IjI4IiBoZWlnaHQ9IjEyIiByeD0iNiIgZmlsbD0iIzEyNTVBOCIvPgogIDxyZWN0IHg9IjI5NiIgeT0iMjYwIiB3aWR0aD0iMjgiIGhlaWdodD0iMTIiIHJ4PSI2IiBmaWxsPSIjMTI1NUE4Ii8+CiAgPCEtLSBDdWVycG8gLS0+CiAgPHJlY3QgeD0iMTQwIiB5PSIzMTYiIHdpZHRoPSIyMzIiIGhlaWdodD0iMTQwIiByeD0iMzAiIGZpbGw9IndoaXRlIi8+CiAgPCEtLSBCb3RvbmVzIGN1ZXJwbyAtLT4KICA8Y2lyY2xlIGN4PSIxOTYiIGN5PSIzNjYiIHI9IjIyIiBmaWxsPSIjMzRDNzU5Ii8+CiAgPGNpcmNsZSBjeD0iMjU2IiBjeT0iMzY2IiByPSIyMiIgZmlsbD0iI0ZGOTgwMCIvPgogIDxjaXJjbGUgY3g9IjMxNiIgY3k9IjM2NiIgcj0iMjIiIGZpbGw9IiNGRjNCMzAiLz4KICA8cmVjdCB4PSIxNzQiIHk9IjQwOCIgd2lkdGg9IjE2NCIgaGVpZ2h0PSIyOCIgcng9IjE0IiBmaWxsPSIjRDZFOEZGIi8+CiAgPCEtLSBCcmF6b3MgLS0+CiAgPHJlY3QgeD0iNjAiIHk9IjMxNiIgd2lkdGg9IjY0IiBoZWlnaHQ9IjEyMCIgcng9IjMyIiBmaWxsPSJ3aGl0ZSIvPgogIDxyZWN0IHg9IjM4OCIgeT0iMzE2IiB3aWR0aD0iNjQiIGhlaWdodD0iMTIwIiByeD0iMzIiIGZpbGw9IndoaXRlIi8+CiAgPCEtLSBQaWVybmFzIC0tPgogIDxyZWN0IHg9IjE2OCIgeT0iNDU2IiB3aWR0aD0iNjQiIGhlaWdodD0iMzYiIHJ4PSIxOCIgZmlsbD0id2hpdGUiLz4KICA8cmVjdCB4PSIyODAiIHk9IjQ1NiIgd2lkdGg9IjY0IiBoZWlnaHQ9IjM2IiByeD0iMTgiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+
+  :root {
+    --blue:#1255A8;
+    --blue-dark:#0D3F7A;
+    --blue-bg:#D6E8FF;
+    --white:#FFFFFF;
+    --black:#0A0A0A;
+    --radius:22px;
+    --shadow:0 5px 20px rgba(18,85,168,0.22);
+    --fs-label:20px;
+    --fs-sub:14px;
+    --fs-head:26px;
+  }
+
+  body {
+    background:#1255A8;
+    font-family:-apple-system,'SF Pro Display','Segoe UI',Arial,sans-serif;
+    min-height:100dvh; display:flex; justify-content:center;
+  }
+  .phone {
+    width:100%; max-width:430px; min-height:100dvh;
+    display:flex; flex-direction:column; background:#1255A8; position:relative;
+  }
+
+  /* ── PANTALLAS ── */
+  .screen { display:none; flex-direction:column; flex:1; min-height:0; }
+  .screen.active { display:flex; }
+
+  /* STATUS BAR */
+  .status-bar {
+    display:flex; justify-content:space-between; align-items:center;
+    padding:14px 22px 6px; color:white; font-size:15px; font-weight:800; flex-shrink:0;
+  }
+
+  /* HOME HEADER */
+  .home-header { background:#1255A8; padding:10px 22px 20px; color:white; flex-shrink:0; }
+  .home-header h1 { font-size:34px; font-weight:900; letter-spacing:-0.5px; }
+  .home-header p { font-size:16px; opacity:0.85; margin-top:3px; }
+
+  /* HOME BODY */
+  .home-body {
+    background:white; border-radius:30px 30px 0 0;
+    flex:1; padding:22px 14px 14px;
+    display:flex; flex-direction:column; gap:12px; overflow-y:auto;
+  }
+
+  /* AVISO TERCERA EDAD */
+  .senior-banner {
+    background:#FFF8E1; border:3px solid #FFC107; border-radius:18px;
+    padding:14px 16px; display:flex; gap:12px; align-items:center;
+  }
+  .senior-banner .sico { font-size:32px; flex-shrink:0; }
+  .senior-banner p { font-size:15px; font-weight:800; color:#5D4037; line-height:1.4; }
+
+  /* GRID BOTONES */
+  .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:13px; }
+
+  /* BOTONES GRANDES */
+  .main-btn {
+    background:white; border:4px solid #1255A8; border-radius:var(--radius);
+    padding:20px 10px 16px;
+    display:flex; flex-direction:column; align-items:center; gap:10px;
+    cursor:pointer; transition:transform 0.12s, background 0.12s;
+    box-shadow:var(--shadow); min-height:130px; position:relative;
+    text-decoration:none;
+  }
+  .main-btn:active { transform:scale(0.92); background:#D6E8FF; }
+  .main-btn .icon { font-size:42px; line-height:1; }
+  .main-btn .label { font-size:var(--fs-label); font-weight:900; color:#0A0A0A; text-align:center; line-height:1.2; }
+  .main-btn .sublabel { font-size:var(--fs-sub); color:#444; text-align:center; font-weight:700; }
+  .main-btn.whatsapp { border-color:#25D366; }
+  .main-btn.phone-btn { border-color:#34C759; }
+  .main-btn.insta-btn { border-color:#E1306C; }
+  .main-btn.youtube-btn { border-color:#FF0000; }
+  .main-btn.screenshot-btn { border-color:#9C27B0; }
+  .security-badge {
+    position:absolute; top:-10px; right:-10px;
+    background:#FF3B30; color:white; font-size:10px; font-weight:900;
+    padding:4px 8px; border-radius:20px; border:2px solid white;
+  }
+
+  /* SCREEN HEADER */
+  .screen-header {
+    background:#1255A8; padding:14px 16px 18px;
+    display:flex; align-items:center; gap:12px; flex-shrink:0;
+  }
+  /* BOTÓN ATRÁS MUY GRANDE */
+  .back-btn {
+    background:rgba(255,255,255,0.25); border:none; border-radius:14px;
+    width:56px; height:56px; font-size:28px; color:white; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    font-weight:900; transition:background 0.12s; flex-shrink:0;
+  }
+  .back-btn:active { background:rgba(255,255,255,0.45); transform:scale(0.90); }
+  .screen-title { font-size:var(--fs-head); font-weight:900; color:white; }
+
+  /* ── CALCULADORA ── */
+  .calc-wrap { background:white; flex:1; display:flex; flex-direction:column; }
+  .calc-display { background:#D6E8FF; padding:20px 22px 14px; text-align:right; border-bottom:3px solid #A8CBF0; flex-shrink:0; }
+  .calc-expr { font-size:18px; color:#1255A8; min-height:24px; font-weight:700; }
+  .calc-result { font-size:58px; font-weight:900; color:#0A0A0A; line-height:1.1; word-break:break-all; }
+  .calc-keys { flex:1; display:grid; grid-template-columns:repeat(4,1fr); gap:10px; padding:14px; background:white; }
+  .key {
+    border:none; border-radius:16px; font-size:28px; font-weight:900;
+    cursor:pointer; min-height:74px;
+    display:flex; align-items:center; justify-content:center;
+    transition:transform 0.1s, filter 0.1s; color:#0A0A0A;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  }
+  .key:active { transform:scale(0.88); filter:brightness(0.88); }
+  .key.num { background:#EEF5FF; border:3px solid #A8CBF0; }
+  .key.op  { background:#1255A8; color:white; border:3px solid #1255A8; }
+  .key.ac  { background:#FF3B30; color:white; border:3px solid #FF3B30; }
+  .key.eq  { background:#0D3F7A; color:white; border:3px solid #0D3F7A; font-size:32px; }
+  .key.del { background:#FFE0E0; color:#FF3B30; border:3px solid #FFAAAA; }
+  .key.zero { grid-column:span 2; }
+
+  /* ── CÁMARA REAL ── */
+  .camera-view { flex:1; background:#111; display:flex; flex-direction:column; overflow:hidden; }
+  .cam-body { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; color:white; position:relative; }
+  #cam-video { width:100%; height:100%; object-fit:cover; position:absolute; inset:0; display:none; }
+  .cam-placeholder { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; position:absolute; inset:0; color:white; text-align:center; padding:24px; }
+  .cam-placeholder .cam-icon { font-size:80px; }
+  .cam-placeholder p { font-size:18px; font-weight:700; opacity:0.85; }
+  .cam-start-btn {
+    background:#1255A8; border:none; border-radius:20px;
+    padding:16px 32px; font-size:20px; font-weight:900; color:white;
+    cursor:pointer; transition:transform 0.12s;
+  }
+  .cam-start-btn:active { transform:scale(0.94); }
+  .cam-ui { position:absolute; bottom:0; left:0; right:0; padding:20px; display:flex; justify-content:space-around; align-items:center; background:linear-gradient(transparent, rgba(0,0,0,0.7)); }
+  .cam-btn { background:white; border:none; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:transform 0.1s; }
+  .cam-btn.shoot { width:88px; height:88px; font-size:36px; box-shadow:0 0 0 8px rgba(255,255,255,0.25); }
+  .cam-btn.shoot:active { transform:scale(0.87); }
+  .cam-btn.small { width:56px; height:56px; font-size:24px; background:rgba(255,255,255,0.25); color:white; }
+  .flash-overlay { position:fixed; inset:0; background:white; opacity:0; pointer-events:none; z-index:999; transition:opacity 0.05s; }
+
+  /* GUÍA PERMISOS */
+  .permission-guide { position:absolute; inset:0; background:rgba(0,0,0,0.92); display:none; flex-direction:column; align-items:center; justify-content:flex-start; padding:20px 16px; z-index:100; color:white; text-align:center; }
+  .permission-guide.show { display:flex; }
+  .perm-arrow { font-size:60px; animation:bounce 0.8s infinite alternate; margin-bottom:6px; }
+  @keyframes bounce { from { transform:translateY(0); } to { transform:translateY(-14px); } }
+  .perm-box { background:#1255A8; border-radius:22px; padding:22px 18px; margin-top:10px; width:100%; }
+  .perm-box h2 { font-size:24px; font-weight:900; margin-bottom:12px; }
+  .perm-step { background:rgba(255,255,255,0.12); border-radius:14px; padding:14px 16px; margin-bottom:10px; font-size:17px; font-weight:800; line-height:1.4; display:flex; align-items:center; gap:12px; text-align:left; }
+  .perm-step .ps-num { background:white; color:#1255A8; border-radius:50%; width:34px; height:34px; display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:900; flex-shrink:0; }
+  .perm-ok-btn { margin-top:14px; background:white; color:#1255A8; border:none; border-radius:16px; padding:16px 32px; font-size:19px; font-weight:900; cursor:pointer; width:100%; transition:transform 0.12s; }
+  .perm-ok-btn:active { transform:scale(0.95); }
+  /* GALERÍA FOTOS */
+  .cam-gallery { position:absolute; top:10px; right:10px; display:flex; gap:6px; flex-wrap:wrap; max-width:180px; justify-content:flex-end; }
+  .cam-thumb { width:52px; height:52px; border-radius:10px; border:3px solid white; object-fit:cover; cursor:pointer; }
+  #cam-canvas { display:none; }
+
+  /* ── WHATSAPP ── */
+  .ws-body { background:white; flex:1; display:flex; flex-direction:column; overflow-y:auto; }
+  .security-banner { background:#FFF3E0; border-bottom:4px solid #FF9800; padding:16px 18px; display:flex; gap:12px; align-items:flex-start; flex-shrink:0; }
+  .security-banner .sbi { font-size:30px; flex-shrink:0; }
+  .security-banner h3 { font-size:17px; font-weight:900; color:#E65100; margin-bottom:4px; }
+  .security-banner p { font-size:14px; color:#BF360C; line-height:1.5; font-weight:700; }
+  .ws-tips { padding:16px; display:flex; flex-direction:column; gap:11px; }
+  .tip-card { background:#EEF5FF; border-left:6px solid #1255A8; border-radius:0 16px 16px 0; padding:14px 16px; }
+  .tip-card h4 { font-size:16px; font-weight:900; color:#0A0A0A; margin-bottom:4px; }
+  .tip-card p { font-size:14px; color:#333; line-height:1.5; font-weight:600; }
+  .tip-card.danger { background:#FFF0F0; border-left-color:#FF3B30; }
+  .tip-card.good   { background:#EDFFF5; border-left-color:#25D366; }
+  .ws-open-btn {
+    margin:6px 16px 22px; background:#25D366; border:none; border-radius:var(--radius);
+    height:72px; font-size:21px; font-weight:900; color:white; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; gap:12px;
+    box-shadow:0 5px 16px rgba(37,211,102,0.38); transition:transform 0.12s; flex-shrink:0;
+    text-decoration:none; width:calc(100% - 32px);
+  }
+  .ws-open-btn:active { transform:scale(0.95); }
+
+  /* ── CORREO ── */
+  .mail-body { background:white; flex:1; overflow-y:auto; }
+  .mail-compose {
+    margin:16px 16px 12px; background:#1255A8; border:none; border-radius:var(--radius);
+    height:68px; width:calc(100% - 32px); font-size:19px; font-weight:900; color:white;
+    cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px;
+    box-shadow:var(--shadow); transition:transform 0.12s; text-decoration:none;
+  }
+  .mail-compose:active { transform:scale(0.95); }
+  .mail-list { padding:0 14px 14px; display:flex; flex-direction:column; gap:10px; }
+  .mail-item { background:white; border-radius:16px; border:3px solid #D6E8FF; padding:16px; display:flex; gap:12px; cursor:pointer; transition:background 0.12s, transform 0.1s; box-shadow:0 2px 10px rgba(18,85,168,0.08); }
+  .mail-item:active { background:#D6E8FF; transform:scale(0.97); }
+  .mail-avatar { width:52px; height:52px; border-radius:50%; background:#1255A8; color:white; display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:900; flex-shrink:0; }
+  .mail-content { flex:1; min-width:0; }
+  .mail-from { font-size:16px; font-weight:900; color:#0A0A0A; }
+  .mail-subject { font-size:14px; font-weight:800; color:#1255A8; margin:3px 0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .mail-preview { font-size:13px; color:#666; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .mail-meta { display:flex; flex-direction:column; align-items:flex-end; gap:6px; flex-shrink:0; }
+  .mail-time { font-size:12px; color:#999; font-weight:700; }
+  .unread-dot { width:11px; height:11px; border-radius:50%; background:#1255A8; }
+
+  /* ── TELÉFONO ── */
+  .phone-wrap { background:white; flex:1; display:flex; flex-direction:column; }
+  .dial-display { background:#D6E8FF; padding:22px 22px 14px; text-align:center; border-bottom:3px solid #A8CBF0; flex-shrink:0; }
+  .dial-number { font-size:46px; font-weight:900; color:#0A0A0A; min-height:58px; letter-spacing:3px; word-break:break-all; }
+  .dial-label { font-size:15px; color:#444; margin-top:5px; font-weight:700; }
+  .dial-pad { flex:1; display:grid; grid-template-columns:repeat(3,1fr); gap:11px; padding:16px; }
+  .dial-key { border:none; border-radius:50%; background:#EEF5FF; border:3px solid #A8CBF0; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; aspect-ratio:1; min-height:82px; transition:transform 0.1s, background 0.1s; }
+  .dial-key:active { transform:scale(0.87); background:#A8CBF0; }
+  .dial-num { font-size:32px; font-weight:900; color:#0A0A0A; line-height:1; }
+  .dial-letters { font-size:11px; color:#444; font-weight:800; letter-spacing:1.5px; margin-top:2px; }
+  .dial-bottom { display:flex; justify-content:space-around; align-items:center; padding:10px 20px 20px; gap:14px; }
+  .dial-call { width:84px; height:84px; border-radius:50%; background:#34C759; border:none; font-size:36px; cursor:pointer; box-shadow:0 5px 18px rgba(52,199,89,0.42); display:flex; align-items:center; justify-content:center; transition:transform 0.12s; text-decoration:none; }
+  .dial-call:active { transform:scale(0.88); }
+  .dial-del { width:64px; height:64px; border-radius:50%; background:#FFE0E0; border:3px solid #FFAAAA; font-size:26px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:transform 0.12s; }
+  .dial-del:active { transform:scale(0.88); }
+  .dial-space { width:64px; height:64px; }
+
+  /* ── INSTAGRAM ── */
+  .insta-wrap { flex:1; background:#fafafa; display:flex; flex-direction:column; overflow-y:auto; }
+  .insta-stories { display:flex; gap:14px; padding:14px 16px; overflow-x:auto; flex-shrink:0; background:white; border-bottom:2px solid #eee; }
+  .insta-stories::-webkit-scrollbar { display:none; }
+  .story { display:flex; flex-direction:column; align-items:center; gap:5px; flex-shrink:0; cursor:pointer; }
+  .story-ring { width:70px; height:70px; border-radius:50%; background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); padding:3px; display:flex; align-items:center; justify-content:center; transition:transform 0.12s; }
+  .story-ring:active { transform:scale(0.90); }
+  .story-ring.add { background:#D6E8FF; }
+  .story-inner { width:100%; height:100%; border-radius:50%; background:white; display:flex; align-items:center; justify-content:center; font-size:28px; border:2px solid white; }
+  .story-name { font-size:12px; color:#111; font-weight:700; text-align:center; max-width:70px; }
+  .insta-feed { display:flex; flex-direction:column; }
+  .insta-post { background:white; margin-bottom:8px; }
+  .post-header { display:flex; align-items:center; gap:12px; padding:14px 16px; }
+  .post-avatar { width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; }
+  .post-user { font-size:16px; font-weight:900; color:#0A0A0A; }
+  .post-time { font-size:12px; color:#888; font-weight:600; }
+  .post-image { width:100%; aspect-ratio:1; background:#f0f0f0; display:flex; align-items:center; justify-content:center; font-size:90px; }
+  .post-actions { display:flex; gap:16px; padding:14px 16px 10px; }
+  .post-action { background:none; border:none; font-size:30px; cursor:pointer; transition:transform 0.1s; padding:2px; }
+  .post-action:active { transform:scale(0.80); }
+  .post-likes { font-size:16px; font-weight:900; color:#0A0A0A; padding:0 16px; }
+  .post-caption { font-size:15px; color:#0A0A0A; padding:5px 16px 14px; line-height:1.5; }
+  .post-caption span { font-weight:900; }
+  .insta-open-btn {
+    margin:10px 16px 22px; background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+    border:none; border-radius:var(--radius); height:68px; font-size:19px; font-weight:900;
+    color:white; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px;
+    text-decoration:none; width:calc(100% - 32px);
+    box-shadow:0 5px 16px rgba(220,39,67,0.32); transition:transform 0.12s;
+  }
+  .insta-open-btn:active { transform:scale(0.95); }
+
+  /* ── YOUTUBE ── */
+  .yt-wrap { background:#f9f9f9; flex:1; display:flex; flex-direction:column; overflow-y:auto; }
+  .yt-search-bar { background:white; padding:14px 16px; border-bottom:2px solid #eee; flex-shrink:0; display:flex; gap:10px; }
+  .yt-search-input {
+    flex:1; border:3px solid #1255A8; border-radius:50px;
+    padding:12px 18px; font-size:17px; font-weight:700; color:#0A0A0A;
+    outline:none; background:white;
+  }
+  .yt-search-btn {
+    background:#FF0000; border:none; border-radius:50px;
+    padding:12px 20px; font-size:22px; cursor:pointer; transition:transform 0.12s;
+  }
+  .yt-search-btn:active { transform:scale(0.90); }
+  .yt-cats { display:flex; gap:10px; padding:12px 16px; overflow-x:auto; flex-shrink:0; background:white; border-bottom:2px solid #eee; }
+  .yt-cats::-webkit-scrollbar { display:none; }
+  .yt-cat { background:#EEF5FF; border:2px solid #1255A8; border-radius:50px; padding:10px 18px; font-size:15px; font-weight:800; color:#1255A8; cursor:pointer; white-space:nowrap; transition:background 0.12s, color 0.12s; flex-shrink:0; }
+  .yt-cat.active, .yt-cat:active { background:#1255A8; color:white; }
+  .yt-list { display:flex; flex-direction:column; gap:0; }
+  .yt-item { background:white; margin-bottom:10px; cursor:pointer; transition:opacity 0.12s; text-decoration:none; display:block; }
+  .yt-item:active { opacity:0.85; }
+  .yt-thumb { width:100%; aspect-ratio:16/9; background:#111; display:flex; align-items:center; justify-content:center; font-size:80px; position:relative; }
+  .yt-play-icon { position:absolute; background:rgba(0,0,0,0.65); border-radius:50%; width:64px; height:64px; display:flex; align-items:center; justify-content:center; font-size:30px; }
+  .yt-info { padding:12px 16px 14px; display:flex; gap:12px; }
+  .yt-ch-icon { width:42px; height:42px; border-radius:50%; background:#FF0000; color:white; display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; font-weight:900; }
+  .yt-text { flex:1; }
+  .yt-title { font-size:16px; font-weight:900; color:#0A0A0A; line-height:1.4; margin-bottom:4px; }
+  .yt-meta { font-size:13px; color:#666; font-weight:700; }
+
+  /* ── CAPTURA DE PANTALLA ── */
+  .screenshot-screen { background:#1a1a2e; flex:1; display:flex; flex-direction:column; overflow-y:auto; }
+  .ss-info { padding:20px 16px; text-align:center; color:white; }
+  .ss-info .ss-ico { font-size:64px; margin-bottom:10px; }
+  .ss-info h2 { font-size:24px; font-weight:900; margin-bottom:8px; }
+  .ss-info p { font-size:16px; opacity:0.8; line-height:1.5; font-weight:700; }
+  .ss-btn-big {
+    margin:10px 16px; background:white; border:none; border-radius:var(--radius);
+    padding:22px 16px; font-size:18px; font-weight:900; color:#1a1a2e;
+    cursor:pointer; display:flex; align-items:center; justify-content:center; gap:12px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.3); transition:transform 0.12s;
+  }
+  .ss-btn-big:active { transform:scale(0.95); }
+  .ss-btn-big.purple { background:#9C27B0; color:white; }
+  .ss-gallery { padding:16px; }
+  .ss-gallery h3 { font-size:18px; font-weight:900; color:white; margin-bottom:12px; }
+  .ss-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; }
+  .ss-thumb { aspect-ratio:9/16; border-radius:12px; overflow:hidden; background:#2a2a4a; border:3px solid rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center; font-size:36px; cursor:pointer; position:relative; }
+  .ss-thumb img { width:100%; height:100%; object-fit:cover; }
+  .ss-thumb-label { position:absolute; bottom:4px; left:0; right:0; text-align:center; font-size:10px; font-weight:900; color:white; background:rgba(0,0,0,0.5); padding:2px; }
+  .ss-tip { margin:10px 16px 20px; background:rgba(255,255,255,0.1); border-radius:16px; padding:14px 16px; color:white; font-size:14px; font-weight:700; line-height:1.5; }
+
+  /* ── CALLING OVERLAY ── */
+  .calling-overlay { position:fixed; inset:0; background:#1255A8; display:none; flex-direction:column; align-items:center; justify-content:center; gap:22px; z-index:2000; color:white; }
+  .calling-overlay.show { display:flex; }
+  .calling-avatar { width:120px; height:120px; border-radius:50%; background:rgba(255,255,255,0.18); display:flex; align-items:center; justify-content:center; font-size:60px; }
+  .calling-name { font-size:32px; font-weight:900; }
+  .calling-status { font-size:18px; opacity:0.75; font-weight:700; }
+  .calling-btns { display:flex; gap:44px; margin-top:22px; }
+  .call-end { width:80px; height:80px; border-radius:50%; background:#FF3B30; border:none; font-size:34px; cursor:pointer; transition:transform 0.12s; }
+  .call-end:active { transform:scale(0.86); }
+  .call-mute { width:64px; height:64px; border-radius:50%; background:rgba(255,255,255,0.18); border:none; font-size:26px; cursor:pointer; color:white; }
+
+  /* ── NAV ── */
+  .bottom-nav { background:white; border-top:3px solid #D6E8FF; display:flex; justify-content:space-around; padding:8px 0 16px; flex-shrink:0; }
+  .nav-item { background:none; border:none; display:flex; flex-direction:column; align-items:center; gap:3px; font-size:11px; font-weight:900; color:#7A9ABC; cursor:pointer; padding:8px 8px; border-radius:14px; transition:background 0.12s, color 0.12s; }
+  .nav-item.active { color:#1255A8; background:#D6E8FF; }
+  .nav-item:active { background:#D6E8FF; }
+  .nav-item .ni { font-size:24px; }
+
+  /* ── TOAST ── */
+  .toast { position:fixed; bottom:90px; left:50%; transform:translateX(-50%) translateY(20px); background:rgba(0,0,0,0.88); color:white; padding:14px 26px; border-radius:30px; font-size:16px; font-weight:800; opacity:0; transition:opacity 0.2s, transform 0.2s; z-index:1000; white-space:nowrap; pointer-events:none; max-width:90vw; text-align:center; }
+  .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+  /* INSTALL BANNER */
+  .install-banner { background:#FF9800; padding:12px 16px; display:flex; align-items:center; gap:10px; flex-shrink:0; display:none; }
+  .install-banner.show { display:flex; }
+  .install-banner p { flex:1; font-size:14px; font-weight:800; color:white; }
+  .install-btn { background:white; color:#FF9800; border:none; border-radius:12px; padding:8px 16px; font-size:14px; font-weight:900; cursor:pointer; }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+<div class="phone">
+
+  <!-- INSTALL BANNER PWA -->
+  <div class="install-banner" id="install-banner">
+    <span style="font-size:22px">📲</span>
+    <p>¡Instala esta app en tu pantalla!</p>
+    <button class="install-btn" onclick="installApp()">Instalar</button>
+    <button style="background:none;border:none;color:white;font-size:22px;cursor:pointer" onclick="document.getElementById('install-banner').classList.remove('show')">✕</button>
+  </div>
+
+  <!-- ══════ INICIO ══════ -->
+  <div class="screen active" id="screen-home">
+    <div class="status-bar">
+      <span id="clock" onclick="widgetTab('reloj')">9:41</span>
+      <div style="display:flex;gap:6px">📶 🔋</div>
+    </div>
+    <div class="home-header">
+      <h1>Mi App</h1>
+      <p>Fácil y segura · Letra grande</p>
+    </div>
+    <div class="home-body">
+      <div class="senior-banner">
+        <span class="sico">🛡️</span>
+        <p>Esta app es segura. Nunca te pediremos contraseñas ni datos bancarios.</p>
+      </div>
+
+      <div class="grid-2">
+        <button class="main-btn phone-btn" onclick="nav('screen-phone')">
+          <span class="icon">📞</span>
+          <span class="label">Teléfono</span>
+          <span class="sublabel">Llamar</span>
+        </button>
+        <button class="main-btn" onclick="nav('screen-calc')">
+          <span class="icon">🧮</span>
+          <span class="label">Calculadora</span>
+          <span class="sublabel">Cálculos fáciles</span>
+        </button>
+        <button class="main-btn" onclick="openCamera()">
+          <span class="icon">📷</span>
+          <span class="label">Cámara</span>
+          <span class="sublabel">Hacer fotos</span>
+        </button>
+        <button class="main-btn whatsapp" onclick="nav('screen-whatsapp')">
+          <span class="security-badge">🔒 SEGURO</span>
+          <span class="icon">💬</span>
+          <span class="label">WhatsApp</span>
+          <span class="sublabel">Mensajes seguros</span>
+        </button>
+        <button class="main-btn" onclick="openMail()">
+          <span class="icon">✉️</span>
+          <span class="label">Correo</span>
+          <span class="sublabel">Bandeja entrada</span>
+        </button>
+        <button class="main-btn insta-btn" onclick="nav('screen-insta')">
+          <span class="icon">📸</span>
+          <span class="label">Instagram</span>
+          <span class="sublabel">Ver fotos</span>
+        </button>
+        <button class="main-btn screenshot-btn" onclick="nav('screen-screenshot')">
+          <span class="icon">🖼️</span>
+          <span class="label">Captura</span>
+          <span class="sublabel">Guardar pantalla</span>
+        </button>
+        <button class="main-btn youtube-btn" onclick="nav('screen-youtube')">
+          <span class="icon">▶️</span>
+          <span class="label">YouTube</span>
+          <span class="sublabel">Ver vídeos</span>
+        </button>
+        <button class="main-btn" style="border-color:#7C3AED;grid-column:span 2;" onclick="abrirMenuIA()">
+          <span class="icon">🤖</span>
+          <span class="label">Asistente IA</span>
+          <span class="sublabel">ChatGPT · Claude · Gemini</span>
+        </button>
+      </div>
+
+      <!-- MODAL IA -->
+      <div id="ia-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:3000;align-items:flex-end;justify-content:center;">
+        <div style="background:white;border-radius:28px 28px 0 0;padding:22px 16px 36px;width:100%;max-width:430px;">
+          <div style="text-align:center;margin-bottom:18px;">
+            <span style="font-size:40px">🤖</span>
+            <h2 style="font-size:22px;font-weight:900;color:#0A0A0A;margin-top:6px;">¿Qué IA quieres usar?</h2>
+            <p style="font-size:14px;color:#666;font-weight:700;margin-top:4px;">Se abrirá en una pestaña nueva</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <button onclick="abrirIA('https://chat.openai.com')" style="background:#10a37f;border:none;border-radius:18px;padding:18px 16px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:transform 0.1s;" ontouchstart="this.style.transform='scale(0.96)'" ontouchend="this.style.transform='scale(1)'">
+              <span style="font-size:36px">🟢</span>
+              <div style="text-align:left">
+                <div style="font-size:19px;font-weight:900;color:white;">ChatGPT</div>
+                <div style="font-size:13px;color:rgba(255,255,255,0.85);font-weight:700;">Por OpenAI · El más conocido</div>
+              </div>
+            </button>
+            <button onclick="abrirIA('https://claude.ai')" style="background:#D97757;border:none;border-radius:18px;padding:18px 16px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:transform 0.1s;" ontouchstart="this.style.transform='scale(0.96)'" ontouchend="this.style.transform='scale(1)'">
+              <span style="font-size:36px">🟠</span>
+              <div style="text-align:left">
+                <div style="font-size:19px;font-weight:900;color:white;">Claude</div>
+                <div style="font-size:13px;color:rgba(255,255,255,0.85);font-weight:700;">Por Anthropic · Muy natural</div>
+              </div>
+            </button>
+            <button onclick="abrirIA('https://gemini.google.com')" style="background:#1255A8;border:none;border-radius:18px;padding:18px 16px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:transform 0.1s;" ontouchstart="this.style.transform='scale(0.96)'" ontouchend="this.style.transform='scale(1)'">
+              <span style="font-size:36px">🔵</span>
+              <div style="text-align:left">
+                <div style="font-size:19px;font-weight:900;color:white;">Gemini</div>
+                <div style="font-size:13px;color:rgba(255,255,255,0.85);font-weight:700;">Por Google · Integrado con Google</div>
+              </div>
+            </button>
+          </div>
+          <button onclick="cerrarMenuIA()" style="margin-top:16px;width:100%;background:#f0f0f0;border:none;border-radius:16px;padding:16px;font-size:17px;font-weight:900;color:#333;cursor:pointer;">✕ Cerrar</button>
+        </div>
+      </div>
+
+      <!-- WIDGET RELOJ / CALENDARIO / ALARMA -->
+      <div style="background:white;border:4px solid #1255A8;border-radius:22px;overflow:hidden;margin-top:4px;box-shadow:0 5px 20px rgba(18,85,168,0.15);">
+
+        <!-- TABS -->
+        <div style="display:flex;border-bottom:3px solid #D6E8FF;">
+          <button id="tab-reloj" onclick="widgetTab('reloj')" style="flex:1;padding:13px 6px;background:#1255A8;border:none;font-size:15px;font-weight:900;color:white;cursor:pointer;">🕐 Reloj</button>
+          <button id="tab-cal" onclick="widgetTab('cal')" style="flex:1;padding:13px 6px;background:#EEF5FF;border:none;font-size:15px;font-weight:900;color:#1255A8;cursor:pointer;">📅 Calendario</button>
+          <button id="tab-alarma" onclick="widgetTab('alarma')" style="flex:1;padding:13px 6px;background:#EEF5FF;border:none;font-size:15px;font-weight:900;color:#1255A8;cursor:pointer;">⏰ Alarma</button>
+        </div>
+
+        <!-- RELOJ -->
+        <div id="widget-reloj" style="padding:18px 16px;text-align:center;">
+          <div id="w-hora" style="font-size:62px;font-weight:900;color:#0A0A0A;letter-spacing:2px;line-height:1;">00:00</div>
+          <div id="w-seg" style="font-size:28px;color:#1255A8;font-weight:900;margin-top:2px;">:00</div>
+          <div id="w-fecha" style="font-size:17px;color:#555;font-weight:800;margin-top:8px;"></div>
+        </div>
+
+        <!-- CALENDARIO -->
+        <div id="widget-cal" style="display:none;padding:14px 12px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+            <button onclick="calMes(-1)" style="background:#EEF5FF;border:2px solid #1255A8;border-radius:12px;width:44px;height:44px;font-size:22px;cursor:pointer;font-weight:900;color:#1255A8;">‹</button>
+            <span id="cal-titulo" style="font-size:18px;font-weight:900;color:#0A0A0A;"></span>
+            <button onclick="calMes(1)" style="background:#EEF5FF;border:2px solid #1255A8;border-radius:12px;width:44px;height:44px;font-size:22px;cursor:pointer;font-weight:900;color:#1255A8;">›</button>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:3px;text-align:center;">
+            <div style="font-size:11px;font-weight:900;color:#1255A8;padding:4px 0;">L</div>
+            <div style="font-size:11px;font-weight:900;color:#1255A8;padding:4px 0;">M</div>
+            <div style="font-size:11px;font-weight:900;color:#1255A8;padding:4px 0;">X</div>
+            <div style="font-size:11px;font-weight:900;color:#1255A8;padding:4px 0;">J</div>
+            <div style="font-size:11px;font-weight:900;color:#1255A8;padding:4px 0;">V</div>
+            <div style="font-size:11px;font-weight:900;color:#FF3B30;padding:4px 0;">S</div>
+            <div style="font-size:11px;font-weight:900;color:#FF3B30;padding:4px 0;">D</div>
+          </div>
+          <div id="cal-grid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:3px;text-align:center;margin-top:2px;"></div>
+        </div>
+
+        <!-- ALARMA -->
+        <div id="widget-alarma" style="display:none;padding:16px;">
+          <div style="display:flex;gap:10px;margin-bottom:12px;">
+            <input type="time" id="alarma-hora" style="flex:1;border:3px solid #1255A8;border-radius:14px;padding:12px 14px;font-size:22px;font-weight:900;color:#0A0A0A;outline:none;background:#EEF5FF;">
+            <button onclick="ponerAlarma()" style="background:#1255A8;border:none;border-radius:14px;padding:12px 18px;font-size:16px;font-weight:900;color:white;cursor:pointer;">✅ Poner</button>
+          </div>
+          <div id="alarma-lista" style="display:flex;flex-direction:column;gap:8px;max-height:140px;overflow-y:auto;"></div>
+          <div id="alarma-vacia" style="text-align:center;color:#888;font-size:15px;font-weight:700;padding:12px;">Sin alarmas. Pon una arriba ☝️</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="bottom-nav">
+      <button class="nav-item active" onclick="nav('screen-home')"><span class="ni">🏠</span>Inicio</button>
+      <button class="nav-item" onclick="nav('screen-phone')"><span class="ni">📞</span>Tel</button>
+      <button class="nav-item" onclick="nav('screen-youtube')"><span class="ni">▶️</span>YouTube</button>
+      <button class="nav-item" onclick="openMail()"><span class="ni">✉️</span>Correo</button>
+      <button class="nav-item" onclick="nav('screen-whatsapp')"><span class="ni">💬</span>WhatsApp</button>
+    </div>
+  </div>
+
+  <!-- ══════ CALCULADORA ══════ -->
+  <div class="screen" id="screen-calc">
+    <div class="screen-header">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <span class="screen-title">Calculadora</span>
+    </div>
+    <div class="calc-wrap">
+      <div class="calc-display">
+        <div class="calc-expr" id="calc-expr"></div>
+        <div class="calc-result" id="calc-result">0</div>
+      </div>
+      <div class="calc-keys">
+        <button class="key ac"  onclick="calcAC()">AC</button>
+        <button class="key del" onclick="calcDel()">⌫</button>
+        <button class="key op"  onclick="calcOp('%')">%</button>
+        <button class="key op"  onclick="calcOp('÷')">÷</button>
+        <button class="key num" onclick="calcNum('7')">7</button>
+        <button class="key num" onclick="calcNum('8')">8</button>
+        <button class="key num" onclick="calcNum('9')">9</button>
+        <button class="key op"  onclick="calcOp('×')">×</button>
+        <button class="key num" onclick="calcNum('4')">4</button>
+        <button class="key num" onclick="calcNum('5')">5</button>
+        <button class="key num" onclick="calcNum('6')">6</button>
+        <button class="key op"  onclick="calcOp('−')">−</button>
+        <button class="key num" onclick="calcNum('1')">1</button>
+        <button class="key num" onclick="calcNum('2')">2</button>
+        <button class="key num" onclick="calcNum('3')">3</button>
+        <button class="key op"  onclick="calcOp('+')">+</button>
+        <button class="key num zero" onclick="calcNum('0')">0</button>
+        <button class="key num" onclick="calcNum('.')">.</button>
+        <button class="key eq"  onclick="calcEq()">=</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ TELÉFONO ══════ -->
+  <div class="screen" id="screen-phone">
+    <div class="screen-header">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <span class="screen-title">Teléfono</span>
+    </div>
+    <div class="phone-wrap">
+      <div class="dial-display">
+        <div class="dial-number" id="dial-number">&#8203;</div>
+        <div class="dial-label">Marca el número y pulsa llamar</div>
+      </div>
+      <div class="dial-pad">
+        <button class="dial-key" onclick="dialNum('1')"><span class="dial-num">1</span><span class="dial-letters"></span></button>
+        <button class="dial-key" onclick="dialNum('2')"><span class="dial-num">2</span><span class="dial-letters">ABC</span></button>
+        <button class="dial-key" onclick="dialNum('3')"><span class="dial-num">3</span><span class="dial-letters">DEF</span></button>
+        <button class="dial-key" onclick="dialNum('4')"><span class="dial-num">4</span><span class="dial-letters">GHI</span></button>
+        <button class="dial-key" onclick="dialNum('5')"><span class="dial-num">5</span><span class="dial-letters">JKL</span></button>
+        <button class="dial-key" onclick="dialNum('6')"><span class="dial-num">6</span><span class="dial-letters">MNO</span></button>
+        <button class="dial-key" onclick="dialNum('7')"><span class="dial-num">7</span><span class="dial-letters">PQRS</span></button>
+        <button class="dial-key" onclick="dialNum('8')"><span class="dial-num">8</span><span class="dial-letters">TUV</span></button>
+        <button class="dial-key" onclick="dialNum('9')"><span class="dial-num">9</span><span class="dial-letters">WXYZ</span></button>
+        <button class="dial-key" onclick="dialNum('*')"><span class="dial-num">*</span></button>
+        <button class="dial-key" onclick="dialNum('0')"><span class="dial-num">0</span><span class="dial-letters">+</span></button>
+        <button class="dial-key" onclick="dialNum('#')"><span class="dial-num">#</span></button>
+      </div>
+      <div class="dial-bottom">
+        <div class="dial-space"></div>
+        <!-- LLAMADA REAL con tel: -->
+        <button id="call-link" class="dial-call" onclick="realCall()">📞</button>
+        <button class="dial-del" onclick="dialDel()">⌫</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ CÁMARA REAL ══════ -->
+  <div class="screen" id="screen-camera">
+    <div class="screen-header">
+      <button class="back-btn" onclick="closeCamera()">←</button>
+      <span class="screen-title">Cámara</span>
+    </div>
+    <div class="camera-view">
+      <div class="cam-body" id="cam-body">
+        <video id="cam-video" autoplay playsinline muted></video>
+        <canvas id="cam-canvas"></canvas>
+
+        <!-- GUÍA PERMISOS -->
+        <div class="permission-guide" id="perm-guide">
+          <div class="perm-arrow">👆</div>
+          <div class="perm-box">
+            <h2>📷 Permite la cámara</h2>
+            <div class="perm-step"><span class="ps-num">1</span>Mira arriba del todo en tu pantalla</div>
+            <div class="perm-step"><span class="ps-num">2</span>Chrome te pregunta: <strong>"¿Permitir cámara?"</strong></div>
+            <div class="perm-step"><span class="ps-num">3</span>Pulsa el botón <strong>PERMITIR</strong> 👆</div>
+            <div class="perm-step"><span class="ps-num">4</span>¡La cámara se abrirá sola! 🎉</div>
+            <button class="perm-ok-btn" onclick="permYaDone()">✅ Ya pulsé Permitir</button>
+          </div>
+        </div>
+
+        <div class="cam-placeholder" id="cam-placeholder">
+          <span class="cam-icon">📷</span>
+          <p>Pulsa el botón para activar la cámara de tu dispositivo</p>
+          <button class="cam-start-btn" onclick="startCamera()">📷 Activar cámara</button>
+        </div>
+        <div class="cam-gallery" id="cam-gallery"></div>
+        <div class="cam-ui" id="cam-ui" style="display:none">
+          <button class="cam-btn small" onclick="switchCamera()">🔄</button>
+          <button class="cam-btn shoot" onclick="shootPhoto()">📸</button>
+          <button class="cam-btn small" onclick="toggleFlash()">⚡</button>
+        </div>
+      </div>
+    </div>
+    <div class="flash-overlay" id="flash"></div>
+  </div>
+
+  <!-- ══════ WHATSAPP ══════ -->
+  <div class="screen" id="screen-whatsapp">
+    <div class="screen-header">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <span class="screen-title">WhatsApp Seguro</span>
+    </div>
+    <div class="ws-body">
+      <div class="security-banner">
+        <span class="sbi">🛡️</span>
+        <div>
+          <h3>⚠️ Lee esto antes de usar WhatsApp</h3>
+          <p>Consejos importantes para protegerte de estafas.</p>
+        </div>
+      </div>
+      <div class="ws-tips">
+        <div class="tip-card danger">
+          <h4>❌ Nunca des tu código de 6 dígitos</h4>
+          <p>WhatsApp NUNCA te lo pedirá. Si alguien te lo pide por mensaje o teléfono, es un estafador. Cuelga y no respondas.</p>
+        </div>
+        <div class="tip-card danger">
+          <h4>❌ No pulses en enlaces desconocidos</h4>
+          <p>Si recibes un enlace raro aunque sea de un familiar, no lo toques. Llama a esa persona para confirmar.</p>
+        </div>
+        <div class="tip-card good">
+          <h4>✅ Activa la verificación en dos pasos</h4>
+          <p>Ajustes → Cuenta → Verificación en dos pasos. Pon un PIN de 6 dígitos que solo tú conozcas.</p>
+        </div>
+        <div class="tip-card good">
+          <h4>✅ Tu foto solo para tus contactos</h4>
+          <p>Ajustes → Privacidad → Foto de perfil → "Mis contactos". Así los desconocidos no te ven.</p>
+        </div>
+        <div class="tip-card">
+          <h4>💡 Si algo te parece raro</h4>
+          <p>Para, respira y llama a un familiar de confianza antes de hacer nada. Nunca tengas prisa.</p>
+        </div>
+      </div>
+      <!-- ABRE WHATSAPP REAL -->
+      <button class="ws-open-btn" onclick="abrirEnNuevaPestana('https://wa.me/')">
+        💬 Abrir WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <!-- ══════ CORREO ══════ (visual - abre cliente real) -->
+  <div class="screen" id="screen-mail">
+    <div class="screen-header">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <span class="screen-title">Correo</span>
+    </div>
+    <div class="mail-body">
+      <a class="mail-compose" href="mailto:" style="display:flex">✏️ Escribir correo nuevo</a>
+      <div class="mail-list">
+        <div class="mail-item" onclick="toast('📧 Abre tu app de correo para ver este mensaje')">
+          <div class="mail-avatar">M</div>
+          <div class="mail-content">
+            <div class="mail-from">María García</div>
+            <div class="mail-subject">Re: Reunión del martes</div>
+            <div class="mail-preview">Perfecto, nos vemos a las 11h...</div>
+          </div>
+          <div class="mail-meta"><span class="mail-time">10:32</span><span class="unread-dot"></span></div>
+        </div>
+        <div class="mail-item" onclick="toast('📧 Abre tu app de correo para ver este mensaje')">
+          <div class="mail-avatar" style="background:#25D366">J</div>
+          <div class="mail-content">
+            <div class="mail-from">Juan López</div>
+            <div class="mail-subject">Factura de enero</div>
+            <div class="mail-preview">Adjunto la factura que me pediste...</div>
+          </div>
+          <div class="mail-meta"><span class="mail-time">Ayer</span><span class="unread-dot"></span></div>
+        </div>
+        <div class="mail-item" onclick="toast('📧 Abre tu app de correo para ver este mensaje')">
+          <div class="mail-avatar" style="background:#9C27B0">A</div>
+          <div class="mail-content">
+            <div class="mail-from">Ana Martínez</div>
+            <div class="mail-subject">Fotos de la excursión</div>
+            <div class="mail-preview">¡Qué bien lo pasamos! Te mando las fotos...</div>
+          </div>
+          <div class="mail-meta"><span class="mail-time">Dom</span></div>
+        </div>
+        <div style="background:#FFF8E1;border:3px solid #FFC107;border-radius:16px;padding:14px 16px;margin-top:6px;">
+          <p style="font-size:15px;font-weight:900;color:#5D4037;">⚠️ Ojo con correos falsos</p>
+          <p style="font-size:14px;color:#444;margin-top:5px;line-height:1.5;font-weight:700;">Si un correo te pide contraseñas o dinero, <strong>no lo abras.</strong> Los bancos nunca piden datos por correo.</p>
+        </div>
+        <a href="mailto:" style="display:flex;" class="mail-compose" style="margin-top:10px">
+          📬 Abrir app de correo
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ INSTAGRAM ══════ -->
+  <div class="screen" id="screen-insta">
+    <div class="screen-header">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <span class="screen-title">Instagram</span>
+      <span style="margin-left:auto;font-size:28px;cursor:pointer" onclick="toast('🔔 Notificaciones')">🔔</span>
+    </div>
+    <div class="insta-wrap">
+      <div class="insta-stories">
+        <div class="story" onclick="toast('➕ Añadir historia')">
+          <div class="story-ring add"><div class="story-inner">➕</div></div>
+          <span class="story-name">Tu historia</span>
+        </div>
+        <div class="story" onclick="toast('👀 Historia de María')">
+          <div class="story-ring"><div class="story-inner">👩</div></div>
+          <span class="story-name">María</span>
+        </div>
+        <div class="story" onclick="toast('👀 Historia de Juan')">
+          <div class="story-ring"><div class="story-inner">👨</div></div>
+          <span class="story-name">Juan</span>
+        </div>
+        <div class="story" onclick="toast('👀 Historia de Ana')">
+          <div class="story-ring"><div class="story-inner">👧</div></div>
+          <span class="story-name">Ana</span>
+        </div>
+      </div>
+      <div class="insta-feed">
+        <div class="insta-post">
+          <div class="post-header">
+            <div class="post-avatar" style="background:#D6E8FF">👩</div>
+            <div><div class="post-user">maria_garcia</div><div class="post-time">hace 2 horas</div></div>
+          </div>
+          <div class="post-image">🌅</div>
+          <div class="post-actions">
+            <button class="post-action" onclick="likePost(this)">🤍</button>
+            <button class="post-action" onclick="toast('💬 Comentarios')">💬</button>
+            <button class="post-action" onclick="toast('📤 Compartido')">📤</button>
+          </div>
+          <div class="post-likes">234 Me gusta</div>
+          <div class="post-caption"><span>maria_garcia</span> ¡Qué atardecer tan bonito! 🌸</div>
+        </div>
+        <div class="insta-post">
+          <div class="post-header">
+            <div class="post-avatar" style="background:#FFF3E0">👨</div>
+            <div><div class="post-user">juan_lopez22</div><div class="post-time">hace 5 horas</div></div>
+          </div>
+          <div class="post-image">🍕</div>
+          <div class="post-actions">
+            <button class="post-action" onclick="likePost(this)">🤍</button>
+            <button class="post-action" onclick="toast('💬 Comentarios')">💬</button>
+            <button class="post-action" onclick="toast('📤 Compartido')">📤</button>
+          </div>
+          <div class="post-likes">87 Me gusta</div>
+          <div class="post-caption"><span>juan_lopez22</span> La mejor pizza de la ciudad 🍕🔥</div>
+        </div>
+      </div>
+      <!-- ABRE INSTAGRAM REAL -->
+      <button class="insta-open-btn" onclick="abrirEnNuevaPestana('https://www.instagram.com')">
+        📸 Abrir Instagram
+      </button>
+    </div>
+  </div>
+
+  <!-- ══════ YOUTUBE ══════ -->
+  <div class="screen" id="screen-youtube">
+    <div class="screen-header">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <span class="screen-title">▶️ YouTube</span>
+    </div>
+    <div class="yt-wrap">
+      <div class="yt-search-bar">
+        <input class="yt-search-input" type="text" placeholder="🔍 Buscar vídeos..." id="yt-search" />
+        <button class="yt-search-btn" onclick="ytSearch()">🔍</button>
+      </div>
+      <div class="yt-cats">
+        <button class="yt-cat active" onclick="ytCat(this,'')">🏠 Para ti</button>
+        <button class="yt-cat" onclick="ytCat(this,'música española')">🎵 Música</button>
+        <button class="yt-cat" onclick="ytCat(this,'noticias España')">📺 Noticias</button>
+        <button class="yt-cat" onclick="ytCat(this,'recetas cocina fácil')">🍳 Recetas</button>
+        <button class="yt-cat" onclick="ytCat(this,'deporte fútbol')">⚽ Deporte</button>
+        <button class="yt-cat" onclick="ytCat(this,'naturaleza relajación')">🌿 Naturaleza</button>
+      </div>
+      <div class="yt-list" id="yt-list">
+        <div class="yt-item" onclick="abrirEnNuevaPestana('https://www.youtube.com/results?search_query=canciones+exitos+70+80+español')">
+          <div class="yt-thumb" style="background:#1a1a1a">🎵<div class="yt-play-icon">▶</div></div>
+          <div class="yt-info">
+            <div class="yt-ch-icon">M</div>
+            <div class="yt-text">
+              <div class="yt-title">Las mejores canciones de los 70 y 80 · Éxitos en español</div>
+              <div class="yt-meta">MúsicaRetro · 2,4 M vistas</div>
+            </div>
+          </div>
+        </div>
+        <div class="yt-item" onclick="abrirEnNuevaPestana('https://www.youtube.com/results?search_query=sonidos+naturaleza+relajacion')">
+          <div class="yt-thumb" style="background:#1a3a1a">🌿<div class="yt-play-icon">▶</div></div>
+          <div class="yt-info">
+            <div class="yt-ch-icon" style="background:#4CAF50">N</div>
+            <div class="yt-text">
+              <div class="yt-title">Relajación con sonidos de la naturaleza · Bosque y pájaros</div>
+              <div class="yt-meta">NaturaSonidos · 850 K vistas</div>
+            </div>
+          </div>
+        </div>
+        <div class="yt-item" onclick="abrirEnNuevaPestana('https://www.youtube.com/results?search_query=receta+paella+valenciana+facil')">
+          <div class="yt-thumb" style="background:#3a1a1a">🍳<div class="yt-play-icon">▶</div></div>
+          <div class="yt-info">
+            <div class="yt-ch-icon" style="background:#FF9800">C</div>
+            <div class="yt-text">
+              <div class="yt-title">Receta fácil de paella valenciana paso a paso</div>
+              <div class="yt-meta">CocinaEspañola · 1,1 M vistas</div>
+            </div>
+          </div>
+        </div>
+        <div class="yt-item" onclick="abrirEnNuevaPestana('https://www.youtube.com/results?search_query=telediario+noticias+hoy+españa')">
+          <div class="yt-thumb" style="background:#1a1a3a">📺<div class="yt-play-icon">▶</div></div>
+          <div class="yt-info">
+            <div class="yt-ch-icon" style="background:#607D8B">T</div>
+            <div class="yt-text">
+              <div class="yt-title">Telediario · Las noticias del día en España</div>
+              <div class="yt-meta">TeleNoticias · 320 K vistas</div>
+            </div>
+          </div>
+        </div>
+        <div class="yt-item" onclick="abrirEnNuevaPestana('https://www.youtube.com/results?search_query=flamenco+espectaculo+directo+sevilla')">
+          <div class="yt-thumb" style="background:#2a1a2a">💃<div class="yt-play-icon">▶</div></div>
+          <div class="yt-info">
+            <div class="yt-ch-icon" style="background:#9C27B0">F</div>
+            <div class="yt-text">
+              <div class="yt-title">Flamenco en directo · Espectáculo completo desde Sevilla</div>
+              <div class="yt-meta">FlamencoVivo · 445 K vistas</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ CAPTURA DE PANTALLA ══════ -->
+  <div class="screen" id="screen-screenshot">
+    <div class="screen-header">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <span class="screen-title">🖼️ Captura</span>
+    </div>
+    <div class="screenshot-screen">
+      <div class="ss-info">
+        <div class="ss-ico">🖼️</div>
+        <h2>Guardar la pantalla</h2>
+        <p>Pulsa el botón grande y la app hace la foto automáticamente. ¡Sin tocar ningún botón del móvil!</p>
+      </div>
+
+      <button class="ss-btn-big purple" id="ss-main-btn" onclick="doScreenshot()">
+        📸 Hacer captura ahora
+      </button>
+
+      <!-- PREVIEW DE ÚLTIMA CAPTURA -->
+      <div id="ss-preview-box" style="display:none; margin:0 16px; border-radius:18px; overflow:hidden; border:4px solid #9C27B0; position:relative;">
+        <img id="ss-preview-img" style="width:100%; display:block;" alt="Captura">
+        <div style="position:absolute; bottom:0; left:0; right:0; background:rgba(0,0,0,0.6); padding:10px 14px; display:flex; justify-content:space-between; align-items:center;">
+          <span style="color:white; font-size:15px; font-weight:900;">✅ ¡Captura lista!</span>
+          <a id="ss-download-link" download="" style="background:#9C27B0; color:white; border:none; border-radius:12px; padding:10px 18px; font-size:15px; font-weight:900; cursor:pointer; text-decoration:none;">⬇️ Guardar</a>
+        </div>
+      </div>
+
+      <div class="ss-tip">
+        💡 La imagen se guarda automáticamente en tu móvil al pulsar el botón. También la puedes ver aquí abajo.
+      </div>
+
+      <div class="ss-gallery">
+        <h3>📁 Capturas de esta sesión</h3>
+        <div class="ss-grid" id="ss-grid">
+          <div class="ss-thumb" style="opacity:0.35; font-size:28px;">📷<span class="ss-thumb-label">Vacío</span></div>
+          <div class="ss-thumb" style="opacity:0.35; font-size:28px;">📷<span class="ss-thumb-label">Vacío</span></div>
+          <div class="ss-thumb" style="opacity:0.35; font-size:28px;">📷<span class="ss-thumb-label">Vacío</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CALLING OVERLAY -->
+  <div class="calling-overlay" id="calling-overlay">
+    <div class="calling-avatar">📞</div>
+    <div class="calling-name" id="calling-name">Llamando...</div>
+    <div class="calling-status" id="calling-status">Marcando número...</div>
+    <div class="calling-btns">
+      <button class="call-mute" onclick="toast('🔇 Silenciado')">🔇</button>
+      <button class="call-end" onclick="endCall()">📵</button>
+      <button class="call-mute" onclick="toast('🔊 Altavoz')">🔊</button>
+    </div>
+  </div>
+
+  <div class="flash-overlay" id="flash"></div>
+  <div class="toast" id="toast"></div>
+</div>
+
+<script>
+// ── WIDGET RELOJ / CALENDARIO / ALARMA ──
+let calMesActual = new Date().getMonth();
+let calAnioActual = new Date().getFullYear();
+let alarmas = [];
+let alarmaInterval = null;
+
+function widgetTab(tab) {
+  ['reloj','cal','alarma'].forEach(t => {
+    document.getElementById('widget-' + t).style.display = t === tab ? 'block' : 'none';
+    const btn = document.getElementById('tab-' + t);
+    btn.style.background = t === tab ? '#1255A8' : '#EEF5FF';
+    btn.style.color = t === tab ? 'white' : '#1255A8';
+  });
+  if (tab === 'cal') renderCal();
+  if (tab === 'alarma') renderAlarmas();
+}
+
+// RELOJ
+function updateWidget() {
+  const now = new Date();
+  const h = now.getHours().toString().padStart(2,'0');
+  const m = now.getMinutes().toString().padStart(2,'0');
+  const s = now.getSeconds().toString().padStart(2,'0');
+  const dias = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+  const meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  const wh = document.getElementById('w-hora');
+  const ws = document.getElementById('w-seg');
+  const wf = document.getElementById('w-fecha');
+  if (wh) wh.textContent = h + ':' + m;
+  if (ws) ws.textContent = ':' + s;
+  if (wf) wf.textContent = dias[now.getDay()] + ', ' + now.getDate() + ' de ' + meses[now.getMonth()] + ' de ' + now.getFullYear();
+  const cl = document.getElementById('clock');
+  if (cl) cl.textContent = h + ':' + m;
+  // Comprobar alarmas
+  alarmas.forEach((a, i) => {
+    if (a.activa && a.hora === h + ':' + m && s === '00') {
+      disparaAlarma(i);
+    }
+  });
+}
+setInterval(updateWidget, 1000);
+updateWidget();
+
+// CALENDARIO
+function renderCal() {
+  const meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+  document.getElementById('cal-titulo').textContent = meses[calMesActual] + ' ' + calAnioActual;
+  const grid = document.getElementById('cal-grid');
+  grid.innerHTML = '';
+  const hoy = new Date();
+  const primero = new Date(calAnioActual, calMesActual, 1);
+  // Lunes=0 ... Domingo=6
+  let diaSemana = primero.getDay() - 1;
+  if (diaSemana < 0) diaSemana = 6;
+  const totalDias = new Date(calAnioActual, calMesActual + 1, 0).getDate();
+  // Huecos iniciales
+  for (let i = 0; i < diaSemana; i++) {
+    const d = document.createElement('div');
+    grid.appendChild(d);
+  }
+  for (let d = 1; d <= totalDias; d++) {
+    const btn = document.createElement('div');
+    const esHoy = d === hoy.getDate() && calMesActual === hoy.getMonth() && calAnioActual === hoy.getFullYear();
+    const diaSem = (diaSemana + d - 1) % 7;
+    const esFinSem = diaSem === 5 || diaSem === 6;
+    btn.style.cssText = 'padding:5px 2px;border-radius:10px;font-size:15px;font-weight:' + (esHoy ? '900' : '700') + ';cursor:pointer;' +
+      'background:' + (esHoy ? '#1255A8' : 'transparent') + ';' +
+      'color:' + (esHoy ? 'white' : esFinSem ? '#FF3B30' : '#0A0A0A') + ';';
+    btn.textContent = d;
+    btn.onclick = () => toast('📅 ' + d + ' de ' + meses[calMesActual]);
+    grid.appendChild(btn);
+  }
+}
+function calMes(dir) {
+  calMesActual += dir;
+  if (calMesActual > 11) { calMesActual = 0; calAnioActual++; }
+  if (calMesActual < 0)  { calMesActual = 11; calAnioActual--; }
+  renderCal();
+}
+
+// ALARMAS
+function ponerAlarma() {
+  const h = document.getElementById('alarma-hora').value;
+  if (!h) { toast('⚠️ Elige una hora primero'); return; }
+  alarmas.push({ hora: h, activa: true });
+  renderAlarmas();
+  toast('⏰ Alarma puesta a las ' + h);
+}
+function renderAlarmas() {
+  const lista = document.getElementById('alarma-lista');
+  const vacia = document.getElementById('alarma-vacia');
+  lista.innerHTML = '';
+  if (!alarmas.length) { vacia.style.display = 'block'; return; }
+  vacia.style.display = 'none';
+  alarmas.forEach((a, i) => {
+    const div = document.createElement('div');
+    div.style.cssText = 'display:flex;align-items:center;justify-content:space-between;background:' + (a.activa ? '#EEF5FF' : '#f5f5f5') + ';border:3px solid ' + (a.activa ? '#1255A8' : '#ccc') + ';border-radius:14px;padding:12px 14px;';
+    div.innerHTML = '<span style="font-size:24px">⏰</span>' +
+      '<span style="font-size:22px;font-weight:900;color:' + (a.activa ? '#0A0A0A' : '#aaa') + '">' + a.hora + '</span>' +
+      '<div style="display:flex;gap:8px">' +
+        '<button onclick="toggleAlarma(' + i + ')" style="background:' + (a.activa ? '#34C759' : '#ccc') + ';border:none;border-radius:10px;padding:8px 12px;font-size:14px;font-weight:900;color:white;cursor:pointer;">' + (a.activa ? 'ON' : 'OFF') + '</button>' +
+        '<button onclick="borrarAlarma(' + i + ')" style="background:#FF3B30;border:none;border-radius:10px;padding:8px 12px;font-size:14px;font-weight:900;color:white;cursor:pointer;">🗑</button>' +
+      '</div>';
+    lista.appendChild(div);
+  });
+}
+function toggleAlarma(i) { alarmas[i].activa = !alarmas[i].activa; renderAlarmas(); }
+function borrarAlarma(i) { alarmas.splice(i, 1); renderAlarmas(); toast('🗑 Alarma eliminada'); }
+function disparaAlarma(i) {
+  // Vibrar si el dispositivo lo soporta
+  if (navigator.vibrate) navigator.vibrate([800,300,800,300,800,300,800]);
+  // Sonido — usar Audio con data URI para garantizar que suena en Android
+  sonarAlarma();
+  // Mostrar alerta después de un pequeño delay para que suene primero
+  setTimeout(() => {
+    alert('⏰ ¡ALARMA! Son las ' + alarmas[i].hora + '\n\nPulsa OK para apagar la alarma.');
+    pararSonido();
+    alarmas[i].activa = false;
+    renderAlarmas();
+  }, 400);
+}
+
+let audioCtxGlobal = null;
+let osciladores = [];
+
+// Inicializar AudioContext en el primer toque del usuario (requisito de Android/Chrome)
+document.addEventListener('touchstart', function iniciarAudio() {
+  if (!audioCtxGlobal) {
+    audioCtxGlobal = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  document.removeEventListener('touchstart', iniciarAudio);
+}, { once: true });
+
+function sonarAlarma() {
+  try {
+    if (!audioCtxGlobal) {
+      audioCtxGlobal = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (audioCtxGlobal.state === 'suspended') {
+      audioCtxGlobal.resume();
+    }
+    pararSonido();
+    // Crear pitidos repetitivos
+    function pitido(t) {
+      const o = audioCtxGlobal.createOscillator();
+      const g = audioCtxGlobal.createGain();
+      o.connect(g);
+      g.connect(audioCtxGlobal.destination);
+      o.type = 'square';
+      o.frequency.value = 880;
+      g.gain.setValueAtTime(0.6, audioCtxGlobal.currentTime + t);
+      g.gain.exponentialRampToValueAtTime(0.001, audioCtxGlobal.currentTime + t + 0.4);
+      o.start(audioCtxGlobal.currentTime + t);
+      o.stop(audioCtxGlobal.currentTime + t + 0.45);
+      osciladores.push(o);
+    }
+    // 10 pitidos con 0.6s de separación
+    for (let i = 0; i < 10; i++) pitido(i * 0.6);
+  } catch(e) {
+    console.error('Error audio:', e);
+  }
+}
+
+function pararSonido() {
+  osciladores.forEach(o => { try { o.stop(); } catch(e) {} });
+  osciladores = [];
+}
+
+// ── NAV CON HISTORIAL ──
+const navHistory = [];
+function nav(id) {
+  const cur = document.querySelector('.screen.active');
+  if (cur) navHistory.push(cur.id);
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+function goBack() {
+  if (!navHistory.length) { nav('screen-home'); return; }
+  const prev = navHistory.pop();
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(prev).classList.add('active');
+}
+
+// ── TOAST ──
+let toastT;
+function toast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg; el.classList.add('show');
+  clearTimeout(toastT);
+  toastT = setTimeout(() => el.classList.remove('show'), 2600);
+}
+
+// ── CALCULADORA ──
+let cC='',cP='',cO='',cJ=false;
+function ud() {
+  const r=document.getElementById('calc-result'),e=document.getElementById('calc-expr');
+  r.textContent=cC||'0';
+  r.style.fontSize=cC.length>9?'32px':cC.length>6?'44px':'58px';
+  e.textContent=cP&&cO?cP+' '+cO:'';
+}
+function calcNum(n){if(cJ){cC='';cJ=false;}if(n==='.'&&cC.includes('.'))return;if(cC.length>=12)return;cC+=n;ud();}
+function calcOp(o){cJ=false;if(cC===''&&cP==='')return;if(cC!==''&&cP!=='')calcEq(true);cO=o;cP=cC||cP;cC='';ud();}
+function calcEq(s){
+  if(!cO||cP==='')return;
+  const a=parseFloat(cP),b=parseFloat(cC||cP);
+  let r;
+  switch(cO){case'+':r=a+b;break;case'−':r=a-b;break;case'×':r=a*b;break;case'÷':r=b?a/b:'÷0!';break;case'%':r=a*b/100;break;default:return;}
+  if(!s){cC=typeof r==='number'?parseFloat(r.toFixed(8)).toString():r;cP='';cO='';cJ=true;ud();}
+  else{cC=typeof r==='number'?parseFloat(r.toFixed(8)).toString():r;cP='';cO='';ud();}
+}
+function calcAC(){cC='';cP='';cO='';cJ=false;ud();}
+function calcDel(){cC=cC.slice(0,-1);ud();}
+
+// ── TELÉFONO REAL ──
+let ds='';
+function dialNum(d){if(ds.length>=12)return;ds+=d;document.getElementById('dial-number').textContent=ds;}
+function dialDel(){ds=ds.slice(0,-1);document.getElementById('dial-number').textContent=ds||'\u200B';}
+function realCall() {
+  if (!ds) { toast('⚠️ Marca un número primero'); return; }
+  toast('📞 Marcando ' + ds + '...');
+  // Abre el marcador real del móvil
+  window.location.href = 'tel:' + ds;
+}
+
+// Abre cualquier URL en pestaña nueva sin cerrar la app
+function abrirEnNuevaPestana(url) {
+  const a = document.createElement('a');
+  a.href = url;
+  a.target = '_blank';
+  a.rel = 'noopener noreferrer';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  toast('🌐 Abriendo en nueva pestaña...');
+}
+
+// ── MENÚ IA ──
+function abrirMenuIA() {
+  document.getElementById('ia-modal').style.display = 'flex';
+}
+function cerrarMenuIA() {
+  document.getElementById('ia-modal').style.display = 'none';
+}
+function abrirIA(url) {
+  cerrarMenuIA();
+  abrirEnNuevaPestana(url);
+}
+// Cerrar al tocar fuera del modal
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('ia-modal');
+  if (modal) modal.addEventListener('click', function(e) {
+    if (e.target === this) cerrarMenuIA();
+  });
+});
+function endCall(){ document.getElementById('calling-overlay').classList.remove('show'); toast('📵 Llamada terminada'); }
+
+// ── CORREO REAL ──
+function openMail() {
+  window.location.href = 'mailto:';
+  nav('screen-mail');
+}
+
+// ── CÁMARA REAL ──
+let camStream = null, facingMode = 'environment', flashOn = false;
+
+function openCamera() { nav('screen-camera'); }
+
+async function startCamera() {
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+    mostrarGuiaPermiso('navegador');
+    return;
+  }
+  // Mostrar guía ANTES de pedir permiso para que el usuario sepa qué hacer
+  document.getElementById('perm-guide').classList.add('show');
+  document.getElementById('cam-placeholder').style.display = 'none';
+  try {
+    const constraints = { video: { facingMode: { ideal: facingMode } }, audio: false };
+    camStream = await navigator.mediaDevices.getUserMedia(constraints);
+    // Permiso concedido: ocultar guía y mostrar cámara
+    document.getElementById('perm-guide').classList.remove('show');
+    const video = document.getElementById('cam-video');
+    video.srcObject = camStream;
+    await video.play();
+    video.style.display = 'block';
+    document.getElementById('cam-ui').style.display = 'flex';
+    toast('📷 ¡Cámara lista! Pulsa 📸 para hacer foto');
+  } catch(err) {
+    document.getElementById('perm-guide').classList.remove('show');
+    document.getElementById('cam-placeholder').style.display = 'flex';
+    if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
+      mostrarGuiaPermiso('bloqueado');
+    } else if (err.name === 'NotFoundError') {
+      toast('❌ No se encontró cámara en este dispositivo');
+    } else {
+      toast('❌ Error: ' + err.message);
+    }
+  }
+}
+
+function permYaDone() {
+  // El usuario dice que ya pulsó Permitir — intentar de nuevo
+  document.getElementById('perm-guide').classList.remove('show');
+  document.getElementById('cam-placeholder').style.display = 'flex';
+  startCamera();
+}
+
+function mostrarGuiaPermiso(tipo) {
+  document.getElementById('perm-guide').classList.remove('show');
+  document.getElementById('cam-placeholder').style.display = 'flex';
+  if (tipo === 'bloqueado') {
+    alert('🔒 El permiso de cámara está bloqueado.\n\nPara activarlo:\n1. Pulsa el candado 🔒 en la barra de direcciones de Chrome\n2. Pulsa "Permisos del sitio"\n3. Cambia Cámara a "Permitir"\n4. Recarga la página');
+  } else {
+    alert('❌ Tu navegador no soporta la cámara.\n\nUsa Google Chrome actualizado para que funcione.');
+  }
+}
+
+function shootPhoto() {
+  if (!camStream) { toast('⚠️ Activa la cámara primero'); return; }
+  const video = document.getElementById('cam-video');
+  const canvas = document.getElementById('cam-canvas');
+  canvas.width = video.videoWidth || 1280;
+  canvas.height = video.videoHeight || 720;
+  const ctx = canvas.getContext('2d');
+  ctx.drawImage(video, 0, 0);
+
+  // Flash
+  if (flashOn) {
+    const fl = document.getElementById('flash');
+    fl.style.opacity = '1';
+    setTimeout(() => fl.style.opacity = '0', 150);
+  }
+
+  // Guardar imagen
+  canvas.toBlob(blob => {
+    const url = URL.createObjectURL(blob);
+    // Miniatura en galería (toca para descargar)
+    const img = document.createElement('img');
+    img.src = url;
+    img.className = 'cam-thumb';
+    img.title = 'Toca para descargar';
+    img.onclick = () => {
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'foto_' + Date.now() + '.jpg';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      toast('📥 Descargando foto...');
+    };
+    document.getElementById('cam-gallery').prepend(img);
+    // Intentar descarga automática
+    setTimeout(() => {
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'foto_' + Date.now() + '.jpg';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }, 300);
+    toast('📸 ¡Foto tomada! Toca la miniatura para guardarla');
+  }, 'image/jpeg', 0.92);
+}
+
+async function switchCamera() {
+  facingMode = facingMode === 'environment' ? 'user' : 'environment';
+  if (camStream) { camStream.getTracks().forEach(t => t.stop()); }
+  await startCamera();
+  toast('🔄 Cámara cambiada');
+}
+
+function toggleFlash() {
+  flashOn = !flashOn;
+  toast(flashOn ? '⚡ Flash ON' : '⚡ Flash OFF');
+}
+
+function closeCamera() {
+  if (camStream) { camStream.getTracks().forEach(t => t.stop()); camStream = null; }
+  document.getElementById('cam-video').style.display = 'none';
+  document.getElementById('cam-placeholder').style.display = 'flex';
+  document.getElementById('cam-ui').style.display = 'none';
+  goBack();
+}
+
+// ── INSTAGRAM ──
+function likePost(b){b.textContent=b.textContent==='🤍'?'❤️':'🤍';if(b.textContent==='❤️')toast('❤️ ¡Te ha gustado!');}
+
+// ── YOUTUBE CON BÚSQUEDA REAL ──
+function ytSearch() {
+  const q = document.getElementById('yt-search').value.trim();
+  if (!q) { toast('⚠️ Escribe algo para buscar'); return; }
+  abrirEnNuevaPestana('https://www.youtube.com/results?search_query=' + encodeURIComponent(q));
+}
+function ytCat(btn, query) {
+  document.querySelectorAll('.yt-cat').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  if (query) {
+    document.getElementById('yt-search').value = query;
+    toast('📂 ' + btn.textContent);
+  }
+}
+
+// ── CAPTURA DE PANTALLA ──
+async function doScreenshot() {
+  const btn = document.getElementById('ss-main-btn');
+  btn.textContent = '⏳ Capturando...';
+  btn.disabled = true;
+  try {
+    if (typeof html2canvas === 'undefined') {
+      toast('⚠️ Cargando herramienta, espera un momento...');
+      btn.textContent = '📸 Hacer captura ahora';
+      btn.disabled = false;
+      return;
+    }
+    const canvas = await html2canvas(document.querySelector('.phone'), {
+      useCORS: true,
+      allowTaint: true,
+      scale: 2,
+      backgroundColor: '#1255A8'
+    });
+    const dataURL = canvas.toDataURL('image/png');
+    const filename = 'captura_' + new Date().toISOString().slice(0,19).replace(/[:T]/g,'-') + '.png';
+
+    // Mostrar preview
+    const previewBox = document.getElementById('ss-preview-box');
+    const previewImg = document.getElementById('ss-preview-img');
+    const dlLink = document.getElementById('ss-download-link');
+    previewImg.src = dataURL;
+    dlLink.href = dataURL;
+    dlLink.download = filename;
+    previewBox.style.display = 'block';
+    previewBox.scrollIntoView({ behavior: 'smooth' });
+
+    // Descargar automáticamente
+    const a = document.createElement('a');
+    a.href = dataURL;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    // Miniatura en galería
+    addScreenshotThumb(dataURL, filename);
+    toast('✅ ¡Captura guardada en tu móvil!');
+  } catch(e) {
+    toast('❌ Error al capturar. Intenta de nuevo.');
+    console.error(e);
+  }
+  btn.textContent = '📸 Hacer otra captura';
+  btn.disabled = false;
+}
+
+function addScreenshotThumb(dataURL, filename) {
+  const grid = document.getElementById('ss-grid');
+  // Quitar placeholders vacíos si los hay
+  const empty = grid.querySelector('[style*="opacity:0.35"]');
+  if (empty) grid.removeChild(empty);
+  const div = document.createElement('div');
+  div.className = 'ss-thumb';
+  div.style.opacity = '1';
+  div.innerHTML = '<img src="' + dataURL + '" alt="Captura"><span class="ss-thumb-label">Nueva</span>';
+  div.onclick = () => {
+    const a = document.createElement('a');
+    a.href = dataURL;
+    a.download = filename || 'captura.png';
+    a.click();
+  };
+  grid.prepend(div);
+}
+
+// ── PWA INSTALL ──
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  document.getElementById('install-banner').classList.add('show');
+});
+async function installApp() {
+  if (!deferredPrompt) { toast('💡 Usa "Añadir a pantalla de inicio" en tu navegador'); return; }
+  deferredPrompt.prompt();
+  const result = await deferredPrompt.userChoice;
+  if (result.outcome === 'accepted') { toast('✅ ¡App instalada!'); }
+  document.getElementById('install-banner').classList.remove('show');
+  deferredPrompt = null;
+}
+// ── SERVICE WORKER incrustado (no necesita archivo externo) ──
+if ('serviceWorker' in navigator) {
+  const swCode = `
+    const CACHE = 'mi-app-v1';
+    self.addEventListener('install', e => { self.skipWaiting(); });
+    self.addEventListener('activate', e => { self.clients.claim(); });
+    self.addEventListener('fetch', e => {
+      e.respondWith(fetch(e.request).catch(() => caches.match(e.request)));
+    });
+  `;
+  const blob = new Blob([swCode], { type: 'application/javascript' });
+  const swUrl = URL.createObjectURL(blob);
+  navigator.serviceWorker.register(swUrl)
+    .then(() => console.log('SW listo'))
+    .catch(e => console.log('SW no disponible:', e));
+}
+</script>
+</body>
+</html>
